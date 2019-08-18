@@ -20,6 +20,11 @@ public class Application {
 		//UserService userService = new UserServiceImpl();
 		ApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class);
 		UserService userService = appContext.getBean("userService", UserService.class);
+		System.out.println(userService);
+		
+		UserService userService2 = appContext.getBean("userService", UserService.class);
+		System.out.println(userService2);
+		
 		System.out.println(userService.findAll().get(0).getFirstName());
 	}
 
