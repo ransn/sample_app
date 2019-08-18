@@ -6,6 +6,7 @@ package com.snr.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.snr.model.User;
@@ -18,14 +19,17 @@ import com.snr.repository.UserRepository;
 @Service("userService")
 public class UserServiceImpl implements UserService {
 	
-	//@Autowired
+	@Value("${dbUsername}")
+	private String dbUsername;
+	
+	@Autowired
 	private UserRepository userRepository;
 	
 	public UserServiceImpl() {
 		
 	}
 	
-	@Autowired
+	//@Autowired
 	public UserServiceImpl(UserRepository userRepository) {
 		System.out.println("we are using autowired in constructor");
 		this.userRepository=userRepository;
@@ -36,6 +40,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public List<User> findAll(){
+		System.out.println(dbUsername);
 		return userRepository.findAll();
 	}
 
