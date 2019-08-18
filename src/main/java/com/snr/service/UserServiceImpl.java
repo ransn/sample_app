@@ -5,6 +5,9 @@ package com.snr.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.snr.model.User;
 import com.snr.repository.UserRepository;
 
@@ -12,9 +15,13 @@ import com.snr.repository.UserRepository;
  * @author I326319
  *
  */
+@Service("userService")
 public class UserServiceImpl implements UserService {
 	
+	@Autowired
 	private UserRepository userRepository;
+	
+	
 	
 	public UserServiceImpl() {
 		
@@ -33,8 +40,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 
-	public void setUserRepository(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
+	//public void setUserRepository(UserRepository userRepository) {
+	//	this.userRepository = userRepository;
+	//}
 
 }
