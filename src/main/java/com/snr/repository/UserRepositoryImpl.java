@@ -14,11 +14,18 @@ import com.snr.model.User;
  */
 public class UserRepositoryImpl implements UserRepository {
 	
+	private String dbUsername;
+
+	public void setDbUsername(String dbUsername) {
+		this.dbUsername = dbUsername;
+	}
+
 	/* (non-Javadoc)
 	 * @see com.snr.repository.UserRepository#findAll()
 	 */
-	@Override
+	@Override 
 	public List<User> findAll(){
+		System.out.println(dbUsername);
 		List<User> users = new ArrayList<User>();
 		User user = new User();
 		user.setFirstName("Ranganath");
